@@ -29,6 +29,5 @@ public class LiveLibTest {
         driver.findElement(By.id("user[submit]")).click();
         Thread.sleep(10000);
         driver.quit();
-
     }
 }
