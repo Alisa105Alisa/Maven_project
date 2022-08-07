@@ -20,15 +20,15 @@ public class LiveLibTest {
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("checkin-email")));
         driver.findElement(By.id("checkin-email")).sendKeys("jewelry105@yandex.ru");
-        Thread.sleep(2000);
-        //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[.='Продолжить']")));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[.='Продолжить']")));
         driver.findElement(By.xpath("//button[.='Продолжить']")).click();
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("id('regForm__checkin')//button[@class='reg-popup__btnNext")));
-        driver.findElement(By.xpath("id('regForm__checkin')//button[@class='reg-popup__btnNext']")).click();
-        Thread.sleep(5000);
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Введите пароль']")));
+        driver.findElement(By.xpath("//input[@placeholder='Введите пароль']")).click();
         driver.findElement(By.xpath("//input[@placeholder='Введите пароль']")).sendKeys("6fre20Jklg");
-
-        driver.quit();
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("user[submit]")));
+        driver.findElement(By.id("user[submit]")).click();
         Thread.sleep(10000);
+        driver.quit();
+
     }
 }
